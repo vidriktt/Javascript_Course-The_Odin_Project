@@ -1,14 +1,19 @@
-let myLibrary = [new Book("title", "author", "pages", true), new Book("title", "author", "pages", false)];
+class Book {
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function () {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
         return this.title + " by " + this.author + ", " + this.pages + "pages, " + this.read;
     }
+
 }
+
+let myLibrary = [new Book("title", "author", "pages", true), new Book("title", "author", "pages", false)];
 
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
