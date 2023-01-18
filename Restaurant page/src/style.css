@@ -1,13 +1,37 @@
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
 #content {
     display: flex;
     justify-content: center;
 }
 
-#header-text {
-    padding-top: 100px;
-    padding-left: 40px;
+#pageContent {
+    width: 30vw;
+    padding-top: 3vh;
+    padding-left: 3vw;
+}
+
+#nav-menu {
+    padding-left: 3vw;
+    padding-top: 3vh;
+}
+
+#nav-menu button {
+    margin-right: 20px;
+    border: none;
+    border-left: 4px solid rgb(50, 50, 50);
+    border-bottom: 4px solid rgb(50, 50, 50);
+    background-color: white;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 #spacer {
-    width: 20vw;
+    width: 5vw;
 }
