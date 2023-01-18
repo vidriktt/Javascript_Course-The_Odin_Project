@@ -1,0 +1,13 @@
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#header-text {
+    padding-top: 100px;
+    padding-left: 40px;
+}
+
+#spacer {
+    width: 20vw;
+}
