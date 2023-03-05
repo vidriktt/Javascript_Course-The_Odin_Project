@@ -4,10 +4,49 @@
 <head>
     <meta charset="UTF-8" />
     <title>TODO list</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 <script defer src="main.bundle.js"></script></head>
 
 <body>
-    <div id="content"></div>
+
+    <div id="header">
+        <h1>TODO List</h1>
+    </div>
+
+    <div id="content">
+
+        <div id="sidebar">
+            <button id="tasks-button" class="secondary">All tasks</button>
+
+            <h4 id="projects-header">Projects</h4>
+            <div id="projects-list">
+            </div>
+
+            <a id="add-project-link" class="text-center secondary"><i data-feather="plus"></i>Add project</a>
+            <div id="add-project-popup" class="show">
+                <input id="add-project-popup-input" type="text" />
+                <div class="grid">
+                    <button id="button-add-project-popup">
+                        Add
+                    </button>
+                    <button id="button-cancel-project-popup">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-container">
+            <h4 id="page-header">Tasks</h4>
+        </div>
+
+    </div>
+
+    <script>
+        feather.replace()
+    </script>
+
 </body>
 
 </html>

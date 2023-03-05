@@ -108,8 +108,8 @@ const game = (() => {
             ) { return true; }
         } else if (
             cell_value == gameboard.gameboard[6]
-                && cell_value == gameboard.gameboard[7]
-                && cell_value == gameboard.gameboard[8]
+            && cell_value == gameboard.gameboard[7]
+            && cell_value == gameboard.gameboard[8]
         ) return true;
     };
 
@@ -128,8 +128,8 @@ const game = (() => {
             ) { return true; }
         } else if (
             cell_value == gameboard.gameboard[2]
-                && cell_value == gameboard.gameboard[5]
-                && cell_value == gameboard.gameboard[8]
+            && cell_value == gameboard.gameboard[5]
+            && cell_value == gameboard.gameboard[8]
         ) return true;
     };
 

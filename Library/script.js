@@ -8,18 +8,15 @@ class Book {
 
     info() {
         return (
-            this.title +
-            " by " +
-            this.author +
-            ", " +
-            this.pages +
-            "pages, " +
-            this.read
+            `${this.title
+            } by ${this.author
+            }, ${this.pages
+            }pages, ${this.read}`
         );
     }
 }
 
-let myLibrary = [
+const myLibrary = [
     new Book("title", "author", "pages", true),
     new Book("title", "author", "pages", false),
 ];
@@ -42,35 +39,35 @@ function readClick(counter) {
 }
 
 function displayLibrary(myLibrary) {
-    let table = document.getElementById("library");
-    let tableBody = document.createElement("tbody");
+    const table = document.getElementById("library");
+    const tableBody = document.createElement("tbody");
 
     for (let i = 0; i < myLibrary.length; i++) {
-        let row = document.createElement("tr");
+        const row = document.createElement("tr");
 
         Object.values(myLibrary[i])
             .slice(0, -1)
-            .forEach(function (cellData) {
-                let cell = document.createElement("td");
+            .forEach((cellData) => {
+                const cell = document.createElement("td");
                 cell.appendChild(document.createTextNode(cellData));
                 row.appendChild(cell);
             });
 
-        let buttonDelete = document.createElement("button");
+        const buttonDelete = document.createElement("button");
         buttonDelete.innerHTML = "Delete";
-        buttonDelete.addEventListener("click", function () {
+        buttonDelete.addEventListener("click", () => {
             deleteClick(i);
         });
-        let deleteCell = document.createElement("td");
+        const deleteCell = document.createElement("td");
         deleteCell.appendChild(buttonDelete);
         row.appendChild(deleteCell);
 
-        let buttonRead = document.createElement("button");
+        const buttonRead = document.createElement("button");
         buttonRead.innerHTML = "Read";
-        buttonRead.addEventListener("click", function () {
+        buttonRead.addEventListener("click", () => {
             readClick(i);
         });
-        let readCell = document.createElement("td");
+        const readCell = document.createElement("td");
         readCell.appendChild(buttonRead);
         row.appendChild(readCell);
 
@@ -85,13 +82,14 @@ function displayLibrary(myLibrary) {
 
 function submitClick(event) {
     event.preventDefault();
-    let inputs = [];
+    const inputs = [];
 
     Array.from(form.elements).forEach((element) => {
-        if (element.value != "Submit")
+        if (element.value != "Submit") {
             element.type != "checkbox"
                 ? inputs.push(element.value)
                 : inputs.push(element.checked);
+        }
     });
 
     addBookToLibrary(inputs[0], inputs[1], inputs[2], inputs[3]);
