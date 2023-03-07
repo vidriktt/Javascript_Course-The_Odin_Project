@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+
 const projectsArray = [
     {
         title: "Default",
@@ -66,6 +68,5 @@ function addProject() {
     addProjectPopupInput.value = "";
 }
 
-export {
-    projectsArray, loadProjects, openAddProjectPopup, addProject,
-};
+export default projectsArray;
+export { loadProjects, openAddProjectPopup, addProject };

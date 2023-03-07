@@ -1,11 +1,9 @@
 import "./style.css";
 import loadTasks from "./modules/tasks";
-import {
-    projectsArray, loadProjects, openAddProjectPopup, addProject,
-} from "./modules/projects";
+import { loadProjects, openAddProjectPopup, addProject } from "./modules/projects";
 
 function init() {
-    // loadTasks();
+    loadTasks();
     loadProjects();
 
     const addProjectLink = document.getElementById("add-project-link");
@@ -16,19 +14,6 @@ function init() {
 
     const buttonAddProjectPopup = document.getElementById("button-add-project-popup");
     buttonAddProjectPopup.addEventListener("click", addProject);
-}
-
-const taskFactory = (title, description, dueDate, priority) => {
-    const checklist = false;
-    return {
-        title, description, dueDate, priority, checklist,
-    };
-};
-
-function createTask(projectTitle, title, description, dueDate, priority) {
-    projectsArray.filter(
-        (project) => project.title === projectTitle,
-    ).tasks.push(taskFactory(title, description, dueDate, priority));
 }
 
 init();

@@ -12,6 +12,10 @@ h4 {
     margin-bottom: 0.6rem;
 }
 
+a {
+    cursor: pointer;
+}
+
 #header {
     background-color: goldenrod;
     width: 100%;
@@ -37,8 +41,8 @@ h4 {
     text-align: center;
 }
 
-#add-project-link {
-    cursor: pointer;
+.text-right {
+    text-align: right;
 }
 
 #add-project-link.show {
@@ -59,6 +63,25 @@ h4 {
 
 #page-container {
     width: 80vw;
-    margin-top: 50px;
-    text-align: center;
+    margin: 50px;
+}
+
+#tasks-list {
+    margin-left: 150px;
+    margin-right: 150px;
+    list-style-type: none;
+}
+
+.tasks-list-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: #e4e4e4 1px solid;
+}
+
+#add-task-link {
+    margin-left: 150px;
+}
+
+#task-modal article {
+    width: 35vw;
 }
