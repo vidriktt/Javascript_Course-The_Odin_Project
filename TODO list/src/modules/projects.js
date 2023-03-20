@@ -1,34 +1,8 @@
 /* eslint-disable no-alert */
+// eslint-disable-next-line import/no-cycle
+import loadTasks from "./tasks";
 
-const projectsArray = [
-    {
-        title: "Default",
-        tasks: [{
-            title: "task1", description: "desc", dueDate: "01.01", priority: 0,
-        },
-        {
-            title: "task2", description: "desc", dueDate: "01.01", priority: 1,
-        }],
-    },
-    {
-        title: "Default1",
-        tasks: [{
-            title: "task01", description: "desc", dueDate: "01.01", priority: 0,
-        },
-        {
-            title: "task21", description: "desc", dueDate: "01.01", priority: 1,
-        }],
-    },
-    {
-        title: "Default2",
-        tasks: [{
-            title: "task02", description: "desc", dueDate: "01.01", priority: 0,
-        },
-        {
-            title: "task22", description: "desc", dueDate: "01.01", priority: 1,
-        }],
-    },
-];
+const projectsArray = [];
 
 const projectFactory = (title) => {
     const tasks = [];
@@ -39,19 +13,48 @@ function createProject(title) {
     projectsArray.push(projectFactory(title));
 }
 
+function deleteProject(title) {
+    for (let i = 0; i < projectsArray.length; i += 1) {
+        if (projectsArray[i].title === title) {
+            console.log(projectsArray[i]);
+            projectsArray.splice(i, 1);
+        }
+    }
+}
+
 function loadProjects() {
     const projectsList = document.getElementById("projects-list");
     projectsList.innerHTML = "";
 
     projectsArray.forEach((project) => {
+        const projectDiv = document.createElement("div");
+        projectDiv.setAttribute("class", "projects-list-project");
+
         const projectButton = document.createElement("button");
 
         projectButton.setAttribute("id", project.title);
         projectButton.setAttribute("class", "secondary");
         projectButton.innerHTML = project.title;
 
-        projectsList.appendChild(projectButton);
+        projectButton.addEventListener("click", () => {
+            loadTasks(project);
+        });
+
+        const projectDeleteLink = document.createElement("a");
+        projectDeleteLink.setAttribute("id", `${project.title}-delete`);
+        projectDeleteLink.setAttribute("class", "secondary");
+        projectDeleteLink.innerHTML = "X";
+
+        projectDeleteLink.addEventListener("click", () => {
+            deleteProject(project.title);
+        });
+
+        projectDiv.appendChild(projectButton);
+        projectDiv.appendChild(projectDeleteLink);
+        projectsList.appendChild(projectDiv);
     });
+
+    if (projectsArray.length !== 0) { localStorage.projectsArray = JSON.stringify(projectsArray); }
 }
 
 function clickAddProject(addProjectLink, addProjectPopup, title) {

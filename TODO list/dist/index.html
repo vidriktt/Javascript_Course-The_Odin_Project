@@ -40,15 +40,7 @@
         <div id="page-container">
             <h3 id="page-header" class="text-center">All Tasks</h3>
 
-            <div id="tasks-list">
-                <!-- <li class="tasks-list-row">
-                    <div class="tasks-list-left"><input type="checkbox">task</div>
-
-                    <div>
-                        <div class="text-right">task</div>
-                    </div>
-                </li> -->
-            </div>
+            <div id="tasks-list"></div>
 
             <a id="add-task-link" class="secondary"><i data-feather="plus"></i>Add task</a>
 
@@ -82,7 +74,7 @@
 
                             <label for="task-modal-priority">
                                 Priority
-                                <select id="task-modal-priority" required>
+                                <select id="task-modal-priority">
                                     <option value="low" selected>Low</option>
                                     <option value="medium">Medium</option>
                                     <option value="high">High</option>
@@ -91,12 +83,15 @@
 
                             <label for="task-modal-project">
                                 Project
-                                <select id="task-modal-project" required></select>
+                                <select id="task-modal-project"></select>
                             </label>
                         </div>
-                        
+
+                        <input type="text" id="task-modal-id"></input>
+
                         <div id="task-modal-buttons">
-                            <button class="secondary task-modal-close" data-target="task-modal" onClick="toggleModal(event)">
+                            <button class="secondary task-modal-close" data-target="task-modal" type="button"
+                                onClick="toggleModal(event)">
                                 Cancel
                             </button>
                             <button id="task-modal-confirm" type="submit">
