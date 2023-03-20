@@ -3,8 +3,11 @@ import loadTasks from "./modules/tasks";
 import { loadProjects, openAddProjectPopup, addProject } from "./modules/projects";
 
 function init() {
-    loadTasks();
     loadProjects();
+    loadTasks();
+
+    const allTasksButton = document.getElementById("all-tasks-button");
+    allTasksButton.addEventListener("click", loadTasks);
 
     const addProjectLink = document.getElementById("add-project-link");
     addProjectLink.addEventListener("click", openAddProjectPopup);
@@ -16,4 +19,6 @@ function init() {
     buttonAddProjectPopup.addEventListener("click", addProject);
 }
 
+// eslint-disable-next-line no-undef
+feather.replace();
 init();

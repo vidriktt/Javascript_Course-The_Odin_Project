@@ -10,6 +10,24 @@ const projectsArray = [
             title: "task2", description: "desc", dueDate: "01.01", priority: 1,
         }],
     },
+    {
+        title: "Default1",
+        tasks: [{
+            title: "task01", description: "desc", dueDate: "01.01", priority: 0,
+        },
+        {
+            title: "task21", description: "desc", dueDate: "01.01", priority: 1,
+        }],
+    },
+    {
+        title: "Default2",
+        tasks: [{
+            title: "task02", description: "desc", dueDate: "01.01", priority: 0,
+        },
+        {
+            title: "task22", description: "desc", dueDate: "01.01", priority: 1,
+        }],
+    },
 ];
 
 const projectFactory = (title) => {

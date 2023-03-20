@@ -17,7 +17,7 @@
     <div id="content">
 
         <div id="sidebar">
-            <button id="tasks-button" class="secondary">All tasks</button>
+            <button id="all-tasks-button" class="secondary">All tasks</button>
 
             <h4 id="projects-header">Projects</h4>
             <div id="projects-list">
@@ -38,7 +38,7 @@
         </div>
 
         <div id="page-container">
-            <h4 id="page-header" class="text-center">Tasks</h4>
+            <h3 id="page-header" class="text-center">All Tasks</h3>
 
             <div id="tasks-list">
                 <!-- <li class="tasks-list-row">
@@ -59,7 +59,7 @@
                     </a>
                     <h4 id="task-modal-header-title"></h4>
 
-                    <form>
+                    <form id="task-modal-form">
                         <div class="grid">
                             <label for="task-modal-title">
                                 Title
@@ -71,13 +71,13 @@
                         <div>
                             <label for="task-modal-description">
                                 Description
-                                <input type="text" id="task-modal-description" required>
+                                <input type="text" id="task-modal-description">
                             </label>
                         </div>
 
                         <div class="grid">
-                            <label for="date">Due date
-                                <input type="date" id="date">
+                            <label for="task-modal-date">Due date
+                                <input type="date" id="task-modal-date" required>
                             </label>
 
                             <label for="task-modal-priority">
@@ -94,25 +94,21 @@
                                 <select id="task-modal-project" required></select>
                             </label>
                         </div>
+                        
+                        <div id="task-modal-buttons">
+                            <button class="secondary task-modal-close" data-target="task-modal" onClick="toggleModal(event)">
+                                Cancel
+                            </button>
+                            <button id="task-modal-confirm" type="submit">
+                                Confirm
+                            </button>
+                        </div>
                     </form>
-
-                    <footer>
-                        <a href="#cancel" role="button" class="secondary task-modal-close" data-target="task-modal"
-                            onClick="toggleModal(event)">
-                            Cancel
-                        </a>
-                        <a id="task-modal-confirm" href="#confirm" role="button" data-target="task-modal"
-                            onClick="toggleModal(event)"></a>
-                    </footer>
                 </article>
             </dialog>
         </div>
 
     </div>
-
-    <script>
-        feather.replace()
-    </script>
 
 </body>
 

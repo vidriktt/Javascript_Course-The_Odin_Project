@@ -95,6 +95,13 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+// Close with confirm button
+function closeModalSubmit() {
+    if (visibleModal != null) {
+        closeModal(visibleModal);
+    }
+}
+
 // Toggle modal
 const toggleModal = (event) => {
     event.preventDefault();
@@ -102,4 +109,4 @@ const toggleModal = (event) => {
     (typeof (modal) !== "undefined" && modal != null) && isModalOpen(modal) ? closeModal(modal) : openModal(modal);
 };
 
-export default toggleModal;
+export { toggleModal, closeModalSubmit };
