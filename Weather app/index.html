@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Weather app</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>Weather app</h1>
+    </header>
+
+    <main>
+        <section>
+
+            <form id="search-form">
+                <input type="search" id="search" name="search" placeholder="Search" required>
+                <button id="form-submit" type="submit">Submit</button>
+
+                <div id="switch-div">
+                    <b>C</b>
+                    <input type="checkbox" id="switch" name="switch" role="switch">
+                    <b>F</b>
+                </div>
+            </form>
+
+        </section>
+
+        <section>
+            <article id="loader" aria-busy="true" hidden></article>
+            <h3 id="error-header" hidden>City not found!</h3>
+
+            <article id="response-article">
+                <header></header>
+
+                <div>
+                    <div id="temp_c"></div>
+                    <div id="temp_f" hidden></div>
+                </div>
+
+                <div id="article-middle-body" class="grid">
+                    <div>
+                        <div id="condition"></div>
+                        <div id="precip_mm"></div>
+                        <div id="precip_in" hidden></div>
+                    </div>
+
+                    <div id="article-body-right">
+                        <div id="wind_kph"></div>
+                        <div id="wind_mph" hidden></div>
+
+                        <div id="humidity"></div>
+
+                        <div id="uv"></div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
