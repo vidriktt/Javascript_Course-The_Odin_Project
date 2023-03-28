@@ -1,4 +1,4 @@
-import { capitalize, reverseString, calculator, caesarCipher } from "./index";
+import { capitalize, reverseString, calculator, caesarCipher, analyzeArray } from "./index";
 
 test("takes a string and returns it with the first character capitalized", () => {
     expect(capitalize("string")).toBe("String");
@@ -25,5 +25,26 @@ test("take two numbers and return the correct calculation - multiply", () => {
 });
 
 test("that takes a string and a shift factor and returns it with each character “shifted”", () => {
-    expect(caesarCipher("string", 2)).toBe("");
+    expect(caesarCipher("string", 2)).toBe("uvtkpi");
+});
+
+test("that takes a string and a shift factor and returns it with each character “shifted” - alphabet wrapping", () => {
+    expect(caesarCipher("zoo", 3)).toBe("crr");
+});
+
+test("that takes a string and a shift factor and returns it with each character “shifted” - case sensitive", () => {
+    expect(caesarCipher("String", 4)).toBe("Wxvmrk");
+});
+
+test("that takes a string and a shift factor and returns it with each character “shifted” - non alphabet character", () => {
+    expect(caesarCipher("str1ng!", 2)).toBe("uvt1pi!");
+});
+
+test("takes an array of numbers and returns an object with the following properties: average, min, max, and length", () => {
+    expect(analyzeArray([1, 2, 3, 4, 5])).toEqual({
+        average: 3,
+        min: 1,
+        max: 5,
+        length: 5
+    });
 });
