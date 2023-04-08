@@ -2,47 +2,41 @@ import { Component } from "react";
 import '../styles/Forms.css';
 
 class Forms extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            name: "Name Surname",
-            title: "Web Developer",
-            email: "email@email.com",
-            phone: "1234 567",
-            location: "London, UK",
-            about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-            school: "University of London",
-            studyTitle: "Informatics",
-            from: "2018",
-            to: "2021",
-        }
-    }
-
     render() {
-        const { name, title, email, phone, location, about, school, studyTitle, from, to } = this.state;
+        const {
+            infoName, infoTitle, email, phone, location, about, schoolName, schoolTitle, schoolFrom, schoolTo, workName, workTitle, workFrom, workTo
+        } = this.props.state;
+
+        const { onChangeGeneral } = this.props;
 
         return (
-            <form>
+            <div id="form">
                 <section>
-                    <h2>General info</h2>
-                    <input id="form-general-name" type="text" value={name}></input>
-                    <input id="form-general-title" type="text" value={title}></input>
-                    <input id="form-general-email" type="text" value={email}></input>
-                    <input id="form-general-phone" type="text" value={phone}></input>
-                    <input id="form-general-location" type="text" value={location}></input>
-                    <input id="form-general-about" type="text" value={about}></input>
+                    <h3>General info</h3>
+                    <input id="form-infoName" type="text" value={infoName} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-infoTitle" type="text" value={infoTitle} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-email" type="text" value={email} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-phone" type="text" value={phone} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-location" type="text" value={location} onChange={e => onChangeGeneral(e.target)}></input>
+                    <span id="form-about" contenteditable="true" onInput={e => onChangeGeneral(e.target)}>{about}</span>
                 </section>
 
                 <section>
-                    <h2>Education</h2>
-                    <input id="form-education-school" type="text" value={school}></input>
-                    <input id="form-education-title" type="text" value={studyTitle}></input>
-                    <input id="form-education-from" type="text" value={from}></input>
-                    <input id="form-education-to" type="text" value={to}></input>
+                    <h3>Education</h3>
+                    <input id="form-schoolName" type="text" value={schoolName}></input>
+                    <input id="form-schoolTitle" type="text" value={schoolTitle}></input>
+                    <input id="form-schoolFrom" type="text" value={schoolFrom}></input>
+                    <input id="form-schoolTo" type="text" value={schoolTo}></input>
                 </section>
-            </form>
+
+                <section>
+                    <h3>Work experience</h3>
+                    <input id="form-workName" type="text" value={workName}></input>
+                    <input id="form-workTitle" type="text" value={workTitle}></input>
+                    <input id="form-workFrom" type="text" value={workFrom}></input>
+                    <input id="form-workTo" type="text" value={workTo}></input>
+                </section>
+            </div>
         );
     }
 }
