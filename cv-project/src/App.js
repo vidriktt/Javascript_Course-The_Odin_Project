@@ -11,7 +11,7 @@ class App extends Component {
             infoName: "Name Surname",
             infoTitle: "Web Developer",
             email: "email@email.com",
-            phone: "1234 567",
+            phone: "0123 4567",
             location: "London, UK",
             about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 
@@ -24,6 +24,7 @@ class App extends Component {
             workTitle: "Web Developer",
             workFrom: "2021",
             workTo: "Present",
+            workAbout: "Irure dolor incididunt sint et ullamco. Commodo laboris amet aliquip incididunt do ut est exercitation reprehenderit magna sit laboris est mollit."
         }
 
         this.onChangeGeneral = this.onChangeGeneral.bind(this);
@@ -43,7 +44,7 @@ class App extends Component {
         return (
             <div id="content">
                 <Forms {...this} />
-                <Output />
+                <Output {...this.state} />
             </div>
         );
     }

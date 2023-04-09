@@ -4,7 +4,7 @@ import '../styles/Forms.css';
 class Forms extends Component {
     render() {
         const {
-            infoName, infoTitle, email, phone, location, about, schoolName, schoolTitle, schoolFrom, schoolTo, workName, workTitle, workFrom, workTo
+            infoName, infoTitle, email, phone, location, about, schoolName, schoolTitle, schoolFrom, schoolTo, workName, workTitle, workFrom, workTo, workAbout
         } = this.props.state;
 
         const { onChangeGeneral } = this.props;
@@ -35,6 +35,7 @@ class Forms extends Component {
                     <input id="form-workTitle" type="text" value={workTitle}></input>
                     <input id="form-workFrom" type="text" value={workFrom}></input>
                     <input id="form-workTo" type="text" value={workTo}></input>
+                    <span id="form-workAbout" contenteditable="true" onInput={e => onChangeGeneral(e.target)}>{workAbout}</span>
                 </section>
             </div>
         );

@@ -1,7 +1,52 @@
 #output {
-    width: 42%;
-    padding: 20px;
-    text-align: center;
+    width: 40%;
+    padding: 40px;
     border: 1px solid gray;
     border-radius: 5px;
+}
+
+#general-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#general-left h1 {
+    margin: 18px 0 6px;
+    color: #407070;
+}
+
+#general-left h3 {
+    margin-top: 6px;
+    font-weight: normal;
+}
+
+#general-right {
+    margin-top: 19px;
+    text-align: right;
+    line-height: 1.6;
+    font-size: 0.7rem;
+}
+
+#general-content {
+    border-top: 3px solid #62a4a4;
+    padding-top: 8px;
+}
+
+#general-content p {
+    font-size: smaller;
+}
+
+#general-content h4 {
+    margin: 30px 0 13px;
+    color: #62a4a4;
+}
+
+#general-content h5 {
+    margin: 0 0 6px;
+}
+
+#general-content p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
 }
