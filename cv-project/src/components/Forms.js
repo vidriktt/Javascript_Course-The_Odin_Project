@@ -3,19 +3,16 @@ import '../styles/Forms.css';
 
 class Forms extends Component {
     render() {
-        const {
-            infoName, infoTitle, email, phone, location, about, educationList, workName, workTitle, workFrom, workTo, workAbout
-        } = this.props.state;
-
-        const { onChangeGeneral, onChangeEducation, onChangeEducationAdd, onClickRemove, onClickAdd } = this.props;
+        const { name, title, email, phone, location, about, educationList, workList } = this.props.state;
+        const { onChangeGeneral, onChange, onChangeAdd, onClickRemove, onClickAdd } = this.props;
 
         return (
             <div id="form">
                 <section id="general-info-section">
                     <h3>General info</h3>
 
-                    <input id="form-infoName" type="text" placeholder="Name" value={infoName} onChange={e => onChangeGeneral(e.target)}></input>
-                    <input id="form-infoTitle" type="text" placeholder="Title" value={infoTitle} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-name" type="text" placeholder="Name" value={name} onChange={e => onChangeGeneral(e.target)}></input>
+                    <input id="form-title" type="text" placeholder="Title" value={title} onChange={e => onChangeGeneral(e.target)}></input>
                     <input id="form-email" type="text" placeholder="Email" value={email} onChange={e => onChangeGeneral(e.target)}></input>
                     <input id="form-phone" type="text" placeholder="Phone number" value={phone} onChange={e => onChangeGeneral(e.target)}></input>
                     <input id="form-location" type="text" placeholder="Location" value={location} onChange={e => onChangeGeneral(e.target)}></input>
@@ -26,45 +23,50 @@ class Forms extends Component {
                     <h3>Education</h3>
 
                     {educationList.map((item) => {
-                        return <div key={item.schoolID} className="education-div">
-                            <input id={`schoolName- ${item.schoolID}`} type="text" placeholder="Institution" value={item.schoolName} onChange={e => onChangeEducation(e.target)}></input>
-                            <input id="form-schoolTitle" type="text" placeholder="Title" value={item.schoolTitle} onChange={e => onChangeEducation(e.target)}></input>
-                            <input id="form-schoolFrom" type="text" placeholder="From" value={item.schoolFrom} onChange={e => onChangeEducation(e.target)}></input>
-                            <input id="form-schoolTo" type="text" placeholder="To" value={item.schoolTo} onChange={e => onChangeEducation(e.target)}></input>
+                        return <div key={item.id} className="education-div">
+                            <input id={`name-${item.id}`} type="text" placeholder="Institution" value={item.name} onChange={e => onChange(e.target, "educationList")}></input>
+                            <input id={`title-${item.id}`} type="text" placeholder="Title" value={item.title} onChange={e => onChange(e.target, "educationList")}></input>
+                            <input id={`from-${item.id}`} type="text" placeholder="From" value={item.from} onChange={e => onChange(e.target, "educationList")}></input>
+                            <input id={`to-${item.id}`} type="text" placeholder="To" value={item.to} onChange={e => onChange(e.target, "educationList")}></input>
 
-                            <button onClick={e => onClickRemove(e.target)}>Remove</button>
+                            <button id={`remove-${item.id}`} onClick={e => onClickRemove(e.target, "educationList")}>Remove</button>
                         </div>
                     })}
 
-                    <div className="education-div">
-                        <input id="form-schoolName" type="text" placeholder="Institution" onChange={e => onChangeEducationAdd(e.target)}></input>
-                        <input id="form-schoolTitle" type="text" placeholder="Title" onChange={e => onChangeEducationAdd(e.target)}></input>
-                        <input id="form-schoolFrom" type="text" placeholder="From" onChange={e => onChangeEducationAdd(e.target)}></input>
-                        <input id="form-schoolTo" type="text" placeholder="To" onChange={e => onChangeEducationAdd(e.target)}></input>
+                    <div id="add-education" className="education-div">
+                        <input id="form-school-name" type="text" placeholder="Institution" onChange={e => onChangeAdd(e.target, "educationList")}></input>
+                        <input id="form-school-title" type="text" placeholder="Title" onChange={e => onChangeAdd(e.target, "educationList")}></input>
+                        <input id="form-school-from" type="text" placeholder="From" onChange={e => onChangeAdd(e.target, "educationList")}></input>
+                        <input id="form-school-to" type="text" placeholder="To" onChange={e => onChangeAdd(e.target, "educationList")}></input>
 
-                        <button onClick={e => onClickAdd(e.target)}>Add</button>
+                        <button onClick={e => onClickAdd("educationList")}>Add</button>
                     </div>
-
-                    {/* <div>
-                        <input id="form-schoolName" type="text" value={schoolName} onChange={e => onChangeEducation(e.target)}></input>
-                        <input id="form-schoolTitle" type="text" value={schoolTitle} onChange={e => onChangeEducation(e.target)}></input>
-                        <input id="form-schoolFrom" type="text" value={schoolFrom} onChange={e => onChangeEducation(e.target)}></input>
-                        <input id="form-schoolTo" type="text" value={schoolTo} onChange={e => onChangeEducation(e.target)}></input>
-
-                        <div className="buttons-div">
-                            <button onClick={e => onClickRemove(e.target)}>Remove</button>
-                            <button onClick={e => onClickAdd(e.target)}>Add</button>
-                        </div>
-                    </div> */}
                 </section>
 
                 <section>
                     <h3>Work experience</h3>
-                    <input id="form-workName" type="text" value={workName}></input>
-                    <input id="form-workTitle" type="text" value={workTitle}></input>
-                    <input id="form-workFrom" type="text" value={workFrom}></input>
-                    <input id="form-workTo" type="text" value={workTo}></input>
-                    <span id="form-workAbout" contentEditable="true" suppressContentEditableWarning={true} onInput={e => onChangeGeneral(e.target)}>{workAbout}</span>
+
+                    {workList.map((item) => {
+                        return <div key={item.id} className="work-div">
+                            <input id={`name-${item.id}`} type="text" placeholder="Company" value={item.name} onChange={e => onChange(e.target, "workList")}></input>
+                            <input id={`title-${item.id}`} type="text" placeholder="Title" value={item.title} onChange={e => onChange(e.target, "workList")}></input>
+                            <input id={`from-${item.id}`} type="text" placeholder="From" value={item.from} onChange={e => onChange(e.target, "workList")}></input>
+                            <input id={`to-${item.id}`} type="text" placeholder="To" value={item.to} onChange={e => onChange(e.target, "workList")}></input>
+                            <span id={`about-${item.id}`} contentEditable="true" suppressContentEditableWarning={true} data-placeholder="About" onInput={e => onChange(e.target, "workList")}>{item.about}</span>
+
+                            <button id={`remove-${item.id}`} onClick={e => onClickRemove(e.target, "workList")}>Remove</button>
+                        </div>
+                    })}
+
+                    <div id="add-work" className="work-div">
+                        <input id="form-work-name" type="text" placeholder="Company" onChange={e => onChangeAdd(e.target, "workList")}></input>
+                        <input id="form-work-title" type="text" placeholder="Title" onChange={e => onChangeAdd(e.target, "workList")}></input>
+                        <input id="form-work-from" type="text" placeholder="From" onChange={e => onChangeAdd(e.target, "workList")}></input>
+                        <input id="form-work-to" type="text" placeholder="To" onChange={e => onChangeAdd(e.target, "workList")}></input>
+                        <span id="form-work-about" contentEditable="true" suppressContentEditableWarning={true} data-placeholder="About" onInput={e => onChangeAdd(e.target, "workList")}></span>
+
+                        <button onClick={e => onClickAdd("workList")}>Add</button>
+                    </div>
                 </section>
             </div>
         );
