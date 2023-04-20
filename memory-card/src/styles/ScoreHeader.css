@@ -1,0 +1,14 @@
+#score-header {
+    margin-bottom: 50px;
+    padding: 50px 0 40px;
+    background-color: #677981;
+    color: aliceblue;
+}
+
+#score-div h3 {
+    display: inline;
+}
+
+#score-div span {
+    margin: 0 30px;
+}

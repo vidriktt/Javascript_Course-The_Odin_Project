@@ -1,0 +1,36 @@
+#cards {
+    display: grid;
+    width: 50vw;
+    margin: auto;
+    padding: 30px;
+    overflow: auto;
+    gap: 35px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#cards div {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #c4e9fb;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    transition: transform 0.3s ease 0s;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    cursor: pointer;
+}
+
+#cards div:hover {
+    transform: scale(1.05);
+}
+
+#cards img {
+    width: 70%;
+    margin-bottom: 5px;
+}
+
+#cards h4 {
+    margin: 7px;
+}
