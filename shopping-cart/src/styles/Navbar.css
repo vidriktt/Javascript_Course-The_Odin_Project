@@ -1,0 +1,38 @@
+#navbar {
+    text-align: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 10px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 50vw;
+    border-bottom: #8e2d8f solid 1px;
+}
+
+#navbar li {
+    display: inline-block;
+}
+
+#navbar li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 0 0 20px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out 0s;
+}
+
+#navbar li a:hover {
+    transform: scale(1.15);
+    transform-origin: center center;
+}
+
+#navbar .active {
+    color: #8e2d8f;
+}
+
+#navbar-total {
+    color: #8e2d8f;
+}
